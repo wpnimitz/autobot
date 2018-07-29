@@ -4,7 +4,7 @@
  * Plugin URI: https://webninjahq.com/?utm_campaign=PluginInfo&utm_source=plugin-header&utm_medium=plugin-uri
  * Description: Easily configure a messenger bot within your wordpress powered website.
  * Author: Nimitz Batioco
- * Version: 1.0.11
+ * Version: 1.0.12
  * Author URI: https://webninjahq.com/?utm_campaign=PluginInfo&utm_source=plugin-header&utm_medium=author-uri
  * Text Domain: wnhq-autobot
 */
@@ -21,3 +21,8 @@ function autobot_register_settings() {
    register_setting( 'autobot_options_group', 'autobot_option_name', 'autobot_callback' );
 }
 add_action( 'admin_init', 'autobot_register_settings' );
+
+function autobot_register_options_page() {
+  add_options_page('Ninja Auto Bot', 'Ninja Auto Bot', 'manage_options', 'autobot', 'autobot_options_page');
+}
+add_action('admin_menu', 'autobot_register_options_page');
